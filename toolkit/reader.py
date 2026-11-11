@@ -1,4 +1,13 @@
 from toolkit.models import UserRecord, Role
+from dataclasses import dataclass
+import csv
+
+
+@dataclass
+class RowError:
+    line: int
+    reason: str
+
 
 def parse_row(row: dict) -> UserRecord:
     email = row["email"].strip().lower()
@@ -15,4 +24,25 @@ def parse_row(row: dict) -> UserRecord:
             
     return UserRecord(email=email, first_name=first_name,
                       last_name=last_name, role=role)
+    
+    
+def load_users(path) -> tuple[list[UserRecord],list[RowError]]:
+    records = []
+    errors = []
+    with open(path, newline="",encoding="utf-8-sig") as f:
+        reader = csv.DictReader(f)
+        #enumerate skips header by defult but we start at two because
+        #header already occupies that line 1 so the number will match what
+        #client sees in the csv file
+        for row_num, row in enumerate(reader, start = 2):
+            try:
+                records.append(parse_row(row))
+            except ValueError as error:
+                errors.append(RowError(line=row_num,reason=str(error)))
+                
+    return records, errors        
+    
 
+
+
+    
