@@ -1,0 +1,8 @@
+email,first_name,last_name,role
+anna.rossi@example.com,Anna,Rossi,admin
+  Marco.Bianchi@Example.com ,Marco,Bianchi,analyst
+giulia.verdi@example,Giulia,Verdi,viewer
+luca.neri@example.com,,Neri,viewer
+sara.costa@example.com,Sara,Costa,superuser
+paolo.gallo@example.com,Paolo,Gallo,Viewer
+elena.fontana@example.com,Elena,Fontana,analyst
