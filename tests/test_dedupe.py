@@ -30,5 +30,5 @@ def test_duplicate_lines_and_reasons(sample_duplicate_user):
     assert [d.line for d in duplicates] == [4,6]
     assert [d.reason for d in duplicates] == ["email: giulia.verdi@example.com is duplicate of line 2",
                                               "email: anna.rossi@example.com is duplicate of line 3"]
-    assert len(errors)==1
+    assert [e.line for e in errors] == [5]
     
