@@ -19,9 +19,9 @@ def sample_csv(tmp_path):
 
 
 def test_load_users_counts_and_lines(sample_csv):
-    records, errors = load_users(sample_csv)
+    pairs, errors = load_users(sample_csv)
     assert len(errors) == 3
-    assert len(records) == 4
+    assert len(pairs) == 4
     assert [e.line for e in errors] == [4,5,6]
-    
+    assert [line for line,_ in pairs] == [2,3,7,8]
     

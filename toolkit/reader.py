@@ -26,21 +26,19 @@ def parse_row(row: dict) -> UserRecord:
                       last_name=last_name, role=role)
     
     
-def load_users(path) -> tuple[list[UserRecord],list[RowError]]:
-    records = []
+def load_users(path) -> tuple[list[tuple[int, UserRecord]],list[RowError]]:
+    pairs = []
     errors = []
     with open(path, newline="",encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
-        #enumerate skips header by defult but we start at two because
-        #header already occupies that line 1 so the number will match what
-        #client sees in the csv file
+        #DictReader consumes the header, so the first data row is file line 2.
         for row_num, row in enumerate(reader, start = 2):
             try:
-                records.append(parse_row(row))
+                pairs.append((row_num, parse_row(row)))
             except ValueError as error:
                 errors.append(RowError(line=row_num,reason=str(error)))
                 
-    return records, errors        
+    return pairs, errors
     
 
 
