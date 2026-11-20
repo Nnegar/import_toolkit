@@ -1,0 +1,8 @@
+line,reason
+4,email: giulia.verdi@example.com is duplicate of line 2
+5,role: unknown value 'superuser'
+6,email: anna.rossi@example.com is duplicate of line 3
+7,email: giulia.verdi@example.com is duplicate of line 2
+9,conflicts with line 2: role differs
+10,"conflicts with line 2: first_name, role differ"
+11,conflicts with line 3: role differs
