@@ -30,5 +30,3 @@ class UserRecord:
         
         if not isinstance(self.role, Role):
             raise ValueError(f"role: not a role {self.role!r}")
-            
-        
