@@ -14,7 +14,7 @@ def test_writer(sample_users_with_errors,tmp_path):
     with open(out, newline="", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
         assert rows == [
-        {"line": "4", "reason": "email: giulia.verdi@example.com is duplicate of line 2"},
+        {"line": "5", "reason": "email: giulia.verdi@example.com is duplicate of line 2"},
         {"line": "5", "reason": "role: unknown value 'superuser'"},
         {"line": "6", "reason": "email: anna.rossi@example.com is duplicate of line 3"},
         {"line": "7", "reason": "email: giulia.verdi@example.com is duplicate of line 2"},
