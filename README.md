@@ -1,0 +1,1 @@
+[![Python Tests](https://github.com/Nnegar/import_toolkit/actions/workflows/tests.yml/badge.svg)](https://github.com/Nnegar/import_toolkit/actions/workflows/tests.yml)
